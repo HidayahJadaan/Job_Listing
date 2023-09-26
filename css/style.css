@@ -1,4 +1,5 @@
 :root {
+  --dark-cyan: hsl(180, 29%, 50%);
   --highlight-text-color: #5da4a4;
   --very-dark-highlight-text-color: hsl(180, 14%, 20%);
 }
@@ -24,7 +25,7 @@ body {
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1310px;
   width: auto;
   display: block;
   margin: 0 auto;
@@ -97,10 +98,10 @@ body {
 
 .jobs_company {
   color: #40a5a4;
-  font-size: 14px;
-  display: block;
+  font-size: 18px;
+  display: ruby-text;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin: 0 14px;
 }
 
 .jobs_title {
@@ -111,8 +112,6 @@ body {
   margin-bottom: 15px;
 }
 
-.jobs_details {
-}
 
 .jobs_details_item {
   display: inline-block;
@@ -180,4 +179,74 @@ body {
 .key-active {
   background-color: var(--highlight-text-color);
   color: #fff;
+}
+
+.new, .feature {
+
+display: inline-block;
+border-radius: 5px;
+overflow: hidden;
+margin: 3px;
+padding: 3px;
+color : #fff;
+}
+
+.feature {
+  background: var(--very-dark-highlight-text-color);
+}
+
+.new {
+  background: var(--dark-cyan);
+}
+
+
+
+
+@media (max-width: 1420px) {
+  .searchBar {
+      margin-bottom: 50px;
+  }
+
+  .search_clear {
+      margin-left: 20px;
+  }
+
+  .jobs {
+      grid-row-gap: 50px;
+  }
+
+  .jobs_item {
+      flex-wrap: wrap;
+  }
+
+  .jobs_info {
+      margin-left: 0;
+      width: 100%;
+  }
+
+  .jobs_col {
+      justify-content: flex-start;
+      flex: 0 1 100%;
+      flex-wrap: wrap;
+  }
+
+  .jobs_left_col {
+      border-bottom: #ABABAB solid 1px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+  }
+
+  .jobs_right_col {
+      width: 100%;
+      justify-content: flex-start;
+      flex: 0 1 100%;
+      flex-wrap: wrap;
+      margin-left: -5px;
+  }
+
+  .jobs_img {
+      width: 70px;
+      margin-top: -120px;
+      margin-bottom: 20px;
+  }
 }

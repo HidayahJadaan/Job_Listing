@@ -182,9 +182,12 @@ function getJobListingHTML(jobData, filterTags = []) {
     leftCol.classList.add("jobs_left_col");
   
     const logo = document.createElement("img");
+    logo.classList.add('jobs_img');
     logo.src = jobData.logo;
   
     leftCol.appendChild(logo);
+
+ 
   
     const jobsInfo = document.createElement("div");
     jobsInfo.classList.add("jobs_Info");
@@ -192,6 +195,26 @@ function getJobListingHTML(jobData, filterTags = []) {
     const jobsCompany = document.createElement("span");
     jobsCompany.classList.add("jobs_company");
     jobsCompany.textContent = jobData.company;
+
+    jobsInfo.appendChild(jobsCompany);
+
+    if (jobData.new) {
+      const span = document.createElement("span");
+      span.classList.add("new");
+      span.textContent = "New!";
+      jobsInfo.appendChild(span);
+    }
+
+    if (jobData.featured) {
+      const span = document.createElement("span");
+      span.classList.add("feature");
+      span.textContent = "Featured";
+      jobsInfo.appendChild(span);
+    }
+
+
+
+
   
     const jobsTilte = document.createElement("span");
     jobsTilte.classList.add("jobs_title");
@@ -215,7 +238,6 @@ function getJobListingHTML(jobData, filterTags = []) {
     jobsDetails.appendChild(jobsDetailsItem1);
     jobsDetails.appendChild(jobsDetailsItem2);
     jobsDetails.appendChild(jobsDetailsItem3);
-    jobsInfo.appendChild(jobsCompany);
     jobsInfo.appendChild(jobsTilte);
     jobsInfo.appendChild(jobsDetails);
   
