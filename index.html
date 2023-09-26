@@ -17,53 +17,40 @@
       href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=League+Spartan:wght@100;200;300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:ital,wght@0,100;0,200;0,300;0,600;0,700;1,200;1,300;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400&family=Style+Script&family=Varela+Round&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,400;1,500;1,600&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
   </head>
 
   <body>
     <header class="header"></header>
 
     <div class="container">
-      <div class="searchBar">
-
-        <div class="search_content">
-          <span class="key-close">Backend</span>
-          <span class="key-close">Backend</span>
-          <span class="key-close">Backend</span>
-          <span class="key-close">Backend</span>
+      <div id="search" class="searchBar search--hidden">
+        <div class="search_content" id="search-content">
         </div>
 
-        <button class="search_clear">Clear</button>
-
+        <button class="search_clear" id="clear">Clear</button>
       </div>
-      <div class="jobs">
-        <div class="jobs_item">
-          <div class="jobs_col jobs_left_col">
-            <img src="./images/photosnap.svg" alt="jobImg" class="jobs_img" />
-            <div class="jobs_Info">
-              <span class="jobs_company">Photosnap</span>
-              <span class="jobs_title">Software Devoloper</span>
-
-              <ul class="jobs_details">
-                <li class="jobs_details_item">2w ago</li>
-                <li class="jobs_details_item">Full Time</li>
-                <li class="jobs_details_item">USA Only</li>
-              </ul>
-            </div>
-          </div>
-          <div class="jobs_col jobs_right_col">
-
-
-            <div class="keyword">Frontend</div>
-
-            <div class="keyword">Junior</div>
-
-            <div class="keyword">Ruby</div>
-            <div class="keyword">Ror</div>
-
-
-          </div>
-        </div>
+      <div class="jobs" id="jobs">
+      
       </div>
     </div>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="htttps://github.com/manishtmtmt">Manish Tiwari</a>.
+    </footer>
+
+    <script src="main.js"></script>
   </body>
 </html>
