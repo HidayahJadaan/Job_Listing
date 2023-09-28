@@ -173,9 +173,9 @@ function getJobListingHTML(jobData, filterTags = []) {
   const jobsItem = document.createElement("div");
   jobsItem.classList.add("jobs_item");
   const span = document.createElement("div");
-  span.classList.add('jobs_item_span')
+  span.classList.add("jobs_item_span");
 
-  jobsItem.appendChild(span)
+  jobsItem.appendChild(span);
 
   const leftCol = document.createElement("div");
   leftCol.classList.add("jobs_col");
@@ -260,17 +260,22 @@ function getJobListingHTML(jobData, filterTags = []) {
 
     */
 
+  const passesFilter =
+    !filterTags.length ||
+    filterTags.some((tag) =>
+      keys.some(
+        (key) => key && key.toLowerCase().includes(tag && tag.toLowerCase())
+      )
+    );
+
+  if (!passesFilter) {
+    return null; 
+
+    /*
+  If there are filter tags specified, and the job listing doesn't contain any of these filter tags --> return null (that jobs_Item should not be displayed)
  
-    const tagsListLowercase = keys.map((key) => key && key.toLowerCase());
-    const passesFilter =
-      !filterTags.length ||
-      filterTags.some((tag) =>
-        tagsListLowercase.includes(tag && tag.toLowerCase())
-      );
-  
-    if (!passesFilter) {
-      return null; // Return null when the job listing doesn't pass the filter.
-    }
+    */
+  }
 
   // else : If the job listing passes the filter ----> generate HTML for the job listing's tags and the right column;
 
