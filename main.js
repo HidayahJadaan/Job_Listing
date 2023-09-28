@@ -172,6 +172,10 @@ function generateTagHTML(tag, tagClasses) {
 function getJobListingHTML(jobData, filterTags = []) {
   const jobsItem = document.createElement("div");
   jobsItem.classList.add("jobs_item");
+  const span = document.createElement("div");
+  span.classList.add('jobs_item_span')
+
+  jobsItem.appendChild(span)
 
   const leftCol = document.createElement("div");
   leftCol.classList.add("jobs_col");
