@@ -269,7 +269,7 @@ function getJobListingHTML(jobData, filterTags = []) {
       );
   
     if (!passesFilter) {
-      return null; // Return null instead of an empty string when the job listing doesn't pass the filter.
+      return null; // Return null when the job listing doesn't pass the filter.
     }
 
   // else : If the job listing passes the filter ----> generate HTML for the job listing's tags and the right column;
