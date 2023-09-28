@@ -385,7 +385,7 @@ function setSearchbarContent(searchContentEl, tags) {
 
 function resetState(searchContentEl) {
   searchContentEl.innerHTML = "";
-  FilterJobsListings();
+  FiterJobsListings();
   displaySearchWrapper(false);
   toggleClass(targetEl, TAG_ACTIVE_CLASS);
 }

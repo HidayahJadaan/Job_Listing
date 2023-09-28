@@ -84,11 +84,12 @@ body {
   justify-content: space-between;
   position: relative;
   z-index: 2;
+  border-color: #40a5a4;
 }
 
 .jobs_item_span{
-border-left: 8px solid #40a5a4;
-  height: 87%;
+border-left: 6px solid #40a5a4;
+  height: 85%;
   border-radius: 15px;
   top: 10px;
   position: absolute;
@@ -194,7 +195,7 @@ border-left: 8px solid #40a5a4;
 .new, .feature {
 
 display: inline-block;
-border-radius: 5px;
+border-radius: 10px;
 overflow: hidden;
 margin: 3px;
 padding: 3px;
