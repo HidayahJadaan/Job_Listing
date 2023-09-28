@@ -408,7 +408,7 @@ window.addEventListener("click", (event) => {
   setSearchbarContent(searchContentEl, searchBarTags);
   toggleClass(targetEl, TAG_ACTIVE_CLASS);
   displaySearchWrapper(searchBarTags.length > 0);
-  FilterJobsListings(searchBarTags);
+  FiterJobsListings(searchBarTags);
 });
 
-FilterJobsListings();
+FiterJobsListings();
