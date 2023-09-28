@@ -256,17 +256,17 @@ function getJobListingHTML(jobData, filterTags = []) {
 
     */
 
-  const tagsListLowercase = keys.map((key) => key && key.toLowerCase());
-  const passesFilter =
-    !filterTags.length ||
-    filterTags.some((tag) =>
-      tagsListLowercase.includes(tag && tag.toLowerCase())
-    );
-
-  // it returns an empty string ==> This means that the job listing will be excluded from the generated HTML.
-  if (!passesFilter) {
-    return "";
-  }
+ 
+    const tagsListLowercase = keys.map((key) => key && key.toLowerCase());
+    const passesFilter =
+      !filterTags.length ||
+      filterTags.some((tag) =>
+        tagsListLowercase.includes(tag && tag.toLowerCase())
+      );
+  
+    if (!passesFilter) {
+      return null; // Return null instead of an empty string when the job listing doesn't pass the filter.
+    }
 
   // else : If the job listing passes the filter ----> generate HTML for the job listing's tags and the right column;
 
@@ -279,8 +279,7 @@ function getJobListingHTML(jobData, filterTags = []) {
   /*
     If currentTag is found in filterTags, it sets activeClass to TAG_ACTIVE_CLASS.
     If currentTag is not found in filterTags, it sets activeClass to an empty string.
-
-*/
+  */
 
   const jobListingHTML = `
       <div class="jobs_col jobs_right_col">
@@ -298,7 +297,7 @@ function getJobListingHTML(jobData, filterTags = []) {
 
   jobsContainer.appendChild(jobsItem);
 
-  return "";
+  return jobsItem;
 }
 
 //================================================
@@ -342,21 +341,15 @@ function FiterJobsListings(filterTags) {
   const jobsContainer = document.querySelector(".jobs");
   jobsContainer.innerHTML = ""; // Clear the existing job listings
 
-  /*
-For each job listing, it calls the getJobListingHTML function to generate HTML for that listing based the provided filterTags.
-If the result is not an empty string --> meaning the job listing passes the filter --> it appends the generated HTML to the jobsContainer.
-
-the new HTML content will be added as the last child of the jobsContainer (beforeend).
-*/
-
   for (const currentListing of jobsListings) {
-    const jobListingHTML = getJobListingHTML(currentListing, filterTags);
+    const jobListingElement = getJobListingHTML(currentListing, filterTags);
 
-    if (jobListingHTML !== "") {
-      jobsContainer.insertAdjacentHTML("beforeend", jobListingHTML);
+    if (jobListingElement !== null) {
+      jobsContainer.appendChild(jobListingElement); // Add valid job listings to the DOM.
     }
   }
 }
+
 //================================================
 
 //manages the visibility of a search wrapper element
