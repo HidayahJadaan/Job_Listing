@@ -161,12 +161,6 @@ const jobsListings = [
   },
 ];
 
-function generateTagHTML(tag, tagClasses) {
-  return `<div class="${tagClasses}">
-            ${tag}
-          </div>`;
-}
-
 //================================================
 
 function getJobListingHTML(jobData, filterTags = []) {
@@ -259,7 +253,6 @@ function getJobListingHTML(jobData, filterTags = []) {
     ===================> passesFilter becomes true.
 
     */
-
   const passesFilter =
     !filterTags.length ||
     filterTags.some((tag) =>
@@ -269,12 +262,8 @@ function getJobListingHTML(jobData, filterTags = []) {
     );
 
   if (!passesFilter) {
-    return null; 
-
-    /*
-  If there are filter tags specified, and the job listing doesn't contain any of these filter tags --> return null (that jobs_Item should not be displayed)
- 
-    */
+    return null;
+    // If there are filter tags specified, and the job listing doesn't contain any of these filter tags --> return null (that jobs_Item should not be displayed)
   }
 
   // else : If the job listing passes the filter ----> generate HTML for the job listing's tags and the right column;
@@ -282,7 +271,7 @@ function getJobListingHTML(jobData, filterTags = []) {
   for (const currentTag of keys) {
     const activeClass =
       (filterTags.includes(currentTag) && TAG_ACTIVE_CLASS) || ""; //if the currentTag matches one of the selected filter tags, activeClass will be set to the value of TAG_ACTIVE_CLASS.
-    tagsString += generateTagHTML(currentTag, `${TAG_CLASS} ${activeClass}`);
+    tagsString += `<button class="${TAG_CLASS} ${activeClass}">${currentTag}</button>`;
   }
 
   /*
@@ -380,7 +369,7 @@ function setSearchbarContent(searchContentEl, tags) {
   let content = "";
 
   for (const currentTag of tags) {
-    content += generateTagHTML(currentTag, CLOSE_TAG_CLASS);
+    content += `<button class="${CLOSE_TAG_CLASS}">${currentTag}</button>`;
   }
 
   searchContentEl.innerHTML = content;
@@ -398,19 +387,26 @@ function resetState(searchContentEl) {
 
 window.addEventListener("click", (event) => {
   const targetEl = event.target;
-  const targetText = targetEl.innerHTML.trim();
-  const searchContentEl = document.getElementById("search-content");
-  const searchBarTags = getSearchBarTags(targetText, searchContentEl);
 
-  if (targetEl.id === "clear" || !searchBarTags.length) {
-    resetState(searchContentEl);
-    return;
+  const tagName = targetEl.tagName;
+
+  // console.log(tagName);
+
+  if (tagName === "BUTTON") {
+    const targetText = targetEl.innerHTML.trim();
+    const searchContentEl = document.getElementById("search-content");
+    const searchBarTags = getSearchBarTags(targetText, searchContentEl);
+
+    if (targetEl.id === "clear" || !searchBarTags.length) {
+      resetState(searchContentEl);
+      return;
+    }
+
+    setSearchbarContent(searchContentEl, searchBarTags);
+    toggleClass(targetEl, TAG_ACTIVE_CLASS);
+    displaySearchWrapper(searchBarTags.length > 0);
+    FiterJobsListings(searchBarTags);
   }
-
-  setSearchbarContent(searchContentEl, searchBarTags);
-  toggleClass(targetEl, TAG_ACTIVE_CLASS);
-  displaySearchWrapper(searchBarTags.length > 0);
-  FiterJobsListings(searchBarTags);
 });
 
 FiterJobsListings();
