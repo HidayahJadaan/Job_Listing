@@ -26,7 +26,9 @@ Your users should be able to:
 
 
 
-https://github.com/HidayahJadaan/Job_Listing/assets/121747756/a0c1bd19-76e0-4c3e-abef-d3a33cfacce0
+
+https://github.com/HidayahJadaan/Job_Listing/assets/121747756/cac432fd-2a7a-4fbd-8500-7c7b9b254f83
+
 
 
 
