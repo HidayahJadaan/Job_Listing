@@ -17,7 +17,9 @@ Your users should be able to:
 
 
 
-https://github.com/HidayahJadaan/Job_Listing/assets/121747756/cac432fd-2a7a-4fbd-8500-7c7b9b254f83
+
+https://github.com/HidayahJadaan/Job_Listing/assets/121747756/01bd275b-45ab-4f64-9e72-d2a3385a60e7
+
 
 
 
